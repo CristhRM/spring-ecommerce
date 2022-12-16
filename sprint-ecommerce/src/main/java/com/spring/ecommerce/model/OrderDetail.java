@@ -1,4 +1,4 @@
-package com.sprint.ecommerce.model;
+package com.spring.ecommerce.model;
 
 public class OrderDetail {
     private Integer id;
@@ -63,7 +63,7 @@ public class OrderDetail {
         return "OrderDetail{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", amount=" + amount +git status
+                ", amount=" + amount +
                 ", price=" + price +
                 ", total=" + total +
                 '}';

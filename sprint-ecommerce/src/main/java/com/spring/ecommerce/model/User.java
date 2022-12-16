@@ -1,4 +1,4 @@
-package com.sprint.ecommerce.model;
+package com.spring.ecommerce.model;
 
 public class User {
     private Integer id;
