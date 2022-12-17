@@ -25,7 +25,7 @@ public class User {
     public User() {
     }
 
-    public User(Integer id, String name, String userName, String email, String address, String telephone, String role, String password, List<Product> products, List<Order> orders) {
+    public User(Integer id, String name, String userName, String email, String address, String telephone, String role, String password) {
         this.id = id;
         this.name = name;
         this.userName = userName;
@@ -34,8 +34,6 @@ public class User {
         this.telephone = telephone;
         this.role = role;
         this.password = password;
-        this.products = products;
-        this.orders = orders;
     }
 
     public Integer getId() {
