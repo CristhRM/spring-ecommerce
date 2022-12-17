@@ -1,6 +1,14 @@
 package com.spring.ecommerce.model;
 
+import jakarta.persistence.*;
+
+import java.util.List;
+
+@Entity
+@Table(name = "users")
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
     private String userName;
@@ -9,11 +17,15 @@ public class User {
     private String telephone;
     private String role;
     private String password;
+    @OneToMany(mappedBy = "user")
+    private List<Product> products;
+    @OneToMany(mappedBy = "user")
+    private List<Order> orders;
 
     public User() {
     }
 
-    public User(Integer id, String name, String userName, String email, String address, String telephone, String role, String password) {
+    public User(Integer id, String name, String userName, String email, String address, String telephone, String role, String password, List<Product> products, List<Order> orders) {
         this.id = id;
         this.name = name;
         this.userName = userName;
@@ -22,6 +34,8 @@ public class User {
         this.telephone = telephone;
         this.role = role;
         this.password = password;
+        this.products = products;
+        this.orders = orders;
     }
 
     public Integer getId() {
@@ -88,6 +102,22 @@ public class User {
         this.password = password;
     }
 
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -99,6 +129,8 @@ public class User {
                 ", telephone='" + telephone + '\'' +
                 ", role='" + role + '\'' +
                 ", password='" + password + '\'' +
+                ", products=" + products +
+                ", orders=" + orders +
                 '}';
     }
 }

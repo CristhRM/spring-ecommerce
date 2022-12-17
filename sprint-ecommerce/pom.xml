@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.sprint.ecommerce</groupId>
-    <artifactId>sprint-ecommerce</artifactId>
+    <artifactId>spring-ecommerce</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>sprint-ecommerce</name>
     <description>sprint-ecommerce</description>

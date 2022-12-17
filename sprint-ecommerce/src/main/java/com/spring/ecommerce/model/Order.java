@@ -1,23 +1,35 @@
 package com.spring.ecommerce.model;
 
+import jakarta.persistence.*;
+
 import java.util.Date;
 
+@Entity
+@Table(name = "orders")
 public class Order {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String number;
     private Date creationDate;
-    private Date crecivedDate;
+    private Date receivedDate;
     private double total;
+    @ManyToOne
+    private User user;
+    @OneToOne(mappedBy = "order")
+    private OrderDetail orderDetail;
 
     public Order() {
     }
 
-    public Order(Integer id, String number, Date creationDate, Date crecivedDate, double total) {
+    public Order(Integer id, String number, Date creationDate, Date receivedDate, double total, User user, OrderDetail orderDetail) {
         this.id = id;
         this.number = number;
         this.creationDate = creationDate;
-        this.crecivedDate = crecivedDate;
+        this.receivedDate = receivedDate;
         this.total = total;
+        this.user = user;
+        this.orderDetail = orderDetail;
     }
 
     public Integer getId() {
@@ -44,12 +56,12 @@ public class Order {
         this.creationDate = creationDate;
     }
 
-    public Date getCrecivedDate() {
-        return crecivedDate;
+    public Date getReceivedDate() {
+        return receivedDate;
     }
 
-    public void setCrecivedDate(Date crecivedDate) {
-        this.crecivedDate = crecivedDate;
+    public void setReceivedDate(Date receivedDate) {
+        this.receivedDate = receivedDate;
     }
 
     public double getTotal() {
@@ -60,14 +72,32 @@ public class Order {
         this.total = total;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public OrderDetail getOrderDetail() {
+        return orderDetail;
+    }
+
+    public void setOrderDetail(OrderDetail orderDetail) {
+        this.orderDetail = orderDetail;
+    }
+
     @Override
     public String toString() {
         return "Order{" +
                 "id=" + id +
                 ", number='" + number + '\'' +
                 ", creationDate=" + creationDate +
-                ", crecivedDate=" + crecivedDate +
+                ", receivedDate=" + receivedDate +
                 ", total=" + total +
+                ", user=" + user +
+                ", orderDetail=" + orderDetail +
                 '}';
     }
 }
